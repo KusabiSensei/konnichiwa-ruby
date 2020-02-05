@@ -3,26 +3,15 @@
 # Check https://circleci.com/docs/2.0/ruby/ for more details
 #
 version: 2.1 
-
-
 orbs:
   ruby: circleci/ruby@0.2.1 # Ruby orb registry: https://circleci.com/orbs/registry/orb/circleci/ruby
-
 jobs: 
   build: 
     docker: 
       - image: circleci/ruby:2.7.0
     steps: 
       - checkout
+      - ruby/load-cache
       - ruby/install-deps
       - ruby/save-cache
-  test:
-    docker:
-      - image: circleci/ruby:2.7.0
-    steps:
-      - checkout
-      - ruby/load-cache
       - ruby/run-tests
-
-# What to do next? Set up a test job. Please see 
-# https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
