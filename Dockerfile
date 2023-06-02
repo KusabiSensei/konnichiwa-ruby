@@ -5,6 +5,6 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install
 FROM base
 WORKDIR /usr/src/app
-COPY --from=dependencies /usr/local/bundle/ /usr/local/bundle/
+COPY --from=gems /usr/local/bundle/ /usr/local/bundle/
 COPY . .
 CMD ["./server.rb"]
