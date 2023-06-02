@@ -7,4 +7,4 @@ FROM base
 WORKDIR /usr/src/app
 COPY --from=gems /usr/local/bundle/ /usr/local/bundle/
 COPY . .
-CMD ["./server.rb"]
+CMD ["ruby server.rb"]
